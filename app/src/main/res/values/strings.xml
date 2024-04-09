@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PayPayXchange</string>
+    <string name="title_activity_exchange">ExchangeActivity</string>
+</resources>

@@ -1,0 +1,1129 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x000000010b3dc8ed, pid=73356, tid=10243
+#
+# JRE version: OpenJDK Runtime Environment (17.0.6) (build 17.0.6+0-17.0.6b829.9-10027231)
+# Java VM: OpenJDK 64-Bit Server VM (17.0.6+0-17.0.6b829.9-10027231, mixed mode, tiered, compressed oops, compressed class ptrs, g1 gc, bsd-amd64)
+# Problematic frame:
+# V  [libjvm.dylib+0xa6a8ed]  SystemDictionary::resolve_or_fail(Symbol*, Handle, Handle, bool, JavaThread*)+0x1d
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Djava.awt.headless=true -Dorg.gradle.internal.worker.tmpdir=/Users/danieljames/AndroidStudioProjects/PayPayXchange/app/build/tmp/testDebugUnitTest/work -Dorg.gradle.native=false -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=127.0.0.1:59620 -javaagent:/Users/danieljames/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.7.3/2b09627576f0989a436a00a4a54b55fa5026fb86/kotlinx-coroutines-core-jvm-1.7.3.jar -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 4'
+
+Host: "MacBookPro16,1" x86_64 2600 MHz, 12 cores, 16G, Darwin 22.4.0, macOS 13.3.1 (22E261)
+Time: Mon Oct 23 17:20:22 2023 WAT elapsed time: 239.361465 seconds (0d 0h 3m 59s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fce7b808a00):  JavaThread "Test worker @coroutine#15" [_thread_in_vm, id=10243, stack(0x0000700002c66000,0x0000700002d66000)]
+
+Stack: [0x0000700002c66000,0x0000700002d66000],  sp=0x0000700002d625a0,  free space=1009k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.dylib+0xa6a8ed]  SystemDictionary::resolve_or_fail(Symbol*, Handle, Handle, bool, JavaThread*)+0x1d
+V  [libjvm.dylib+0x358c27]  ConstantPool::klass_at_impl(constantPoolHandle const&, int, JavaThread*)+0x1a7
+V  [libjvm.dylib+0x3597f1]  ConstantPool::klass_ref_at(int, JavaThread*)+0x71
+V  [libjvm.dylib+0x73a3b3]  LinkInfo::LinkInfo(constantPoolHandle const&, int, JavaThread*)+0x33
+V  [libjvm.dylib+0x73ef85]  LinkResolver::resolve_invoke(CallInfo&, Handle, constantPoolHandle const&, int, Bytecodes::Code, JavaThread*)+0x65
+V  [libjvm.dylib+0x51fade]  InterpreterRuntime::resolve_invoke(JavaThread*, Bytecodes::Code)+0x2de
+V  [libjvm.dylib+0x520039]  InterpreterRuntime::resolve_from_cache(JavaThread*, Bytecodes::Code)+0x59
+j  com.danijax.paypayxchange.data.repository.ExchangeRateRepository.getRatesFor(Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;+4
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModel$getExchangeRates$1.invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;+60
+j  kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(Ljava/lang/Object;)V+44
+j  kotlinx.coroutines.internal.DispatchedContinuationKt.resumeCancellableWith(Lkotlin/coroutines/Continuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V+332
+j  kotlinx.coroutines.intrinsics.CancellableKt.startCoroutineCancellable(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;)V+27
+j  kotlinx.coroutines.intrinsics.CancellableKt.startCoroutineCancellable$default(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V+13
+j  kotlinx.coroutines.CoroutineStart.invoke(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V+46
+j  kotlinx.coroutines.AbstractCoroutine.start(Lkotlinx/coroutines/CoroutineStart;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V+7
+j  kotlinx.coroutines.BuildersKt__Builders_commonKt.launch(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;+48
+j  kotlinx.coroutines.BuildersKt.launch(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;+4
+j  kotlinx.coroutines.BuildersKt__Builders_commonKt.launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;+29
+j  kotlinx.coroutines.BuildersKt.launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;+8
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModel.getExchangeRates()V+23
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModel.updateSelectedCurrency(Ljava/lang/String;)V+17
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModelTest$selecting base currency updates shoud return new rates for the selected currency view model $1.invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;+592
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModelTest$selecting base currency updates shoud return new rates for the selected currency view model $1.invoke(Lkotlinx/coroutines/test/TestScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;+12
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModelTest$selecting base currency updates shoud return new rates for the selected currency view model $1.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+9
+j  kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$1.invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;+102
+j  kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(Ljava/lang/Object;)V+44
+j  kotlinx.coroutines.DispatchedTask.run()V+317
+j  kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test(Ljava/lang/Object;)V+26
+j  kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test(Lkotlin/jvm/functions/Function0;)Z+137
+j  kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;+69
+j  kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(Ljava/lang/Object;)V+44
+j  kotlinx.coroutines.DispatchedTask.run()V+317
+j  kotlinx.coroutines.EventLoopImplBase.processNextEvent()J+198
+j  kotlinx.coroutines.BlockingCoroutine.joinBlocking()Ljava/lang/Object;+75
+j  kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;+158
+j  kotlinx.coroutines.BuildersKt.runBlocking(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;+2
+j  kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;+15
+j  kotlinx.coroutines.BuildersKt.runBlocking$default(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;+4
+j  kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult(Lkotlin/jvm/functions/Function2;)V+15
+j  kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(Lkotlinx/coroutines/test/TestScope;JLkotlin/jvm/functions/Function2;)V+30
+j  kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(Lkotlinx/coroutines/test/TestScope;JLkotlin/jvm/functions/Function2;)V+3
+j  kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(Lkotlin/coroutines/CoroutineContext;JLkotlin/jvm/functions/Function2;)V+60
+j  kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(Lkotlin/coroutines/CoroutineContext;JLkotlin/jvm/functions/Function2;)V+3
+j  kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0$default(Lkotlin/coroutines/CoroutineContext;JLkotlin/jvm/functions/Function2;ILjava/lang/Object;)V+28
+j  kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0$default(Lkotlin/coroutines/CoroutineContext;JLkotlin/jvm/functions/Function2;ILjava/lang/Object;)V+7
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModelTest.selecting base currency updates shoud return new rates for the selected currency view model ()V+16
+v  ~StubRoutines::call_stub
+V  [libjvm.dylib+0x526442]  JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, JavaThread*)+0x2a2
+V  [libjvm.dylib+0x928ff8]  invoke(InstanceKlass*, methodHandle const&, Handle, bool, objArrayHandle, BasicType, objArrayHandle, bool, JavaThread*)+0xa18
+V  [libjvm.dylib+0x92858f]  Reflection::invoke_method(oopDesc*, Handle, objArrayHandle, JavaThread*)+0x12f
+V  [libjvm.dylib+0x5d155e]  JVM_InvokeMethod+0x30e
+J 1419  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@17.0.6 (0 bytes) @ 0x00000001164265b8 [0x00000001164264c0+0x00000000000000f8]
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+133 java.base@17.0.6
+J 1337 c1 jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@17.0.6 (10 bytes) @ 0x000000010eb757e4 [0x000000010eb756c0+0x0000000000000124]
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+59 java.base@17.0.6
+j  org.junit.runners.model.FrameworkMethod$1.runReflectiveCall()Ljava/lang/Object;+15
+j  org.junit.internal.runners.model.ReflectiveCallable.run()Ljava/lang/Object;+1
+j  org.junit.runners.model.FrameworkMethod.invokeExplosively(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+10
+j  org.junit.internal.runners.statements.InvokeMethod.evaluate()V+12
+j  org.junit.internal.runners.statements.RunBefores.evaluate()V+41
+j  org.junit.rules.TestWatcher$1.evaluate()V+24
+j  org.junit.runners.ParentRunner$3.evaluate()V+4
+j  org.junit.runners.BlockJUnit4ClassRunner$1.evaluate()V+11
+j  org.junit.runners.ParentRunner.runLeaf(Lorg/junit/runners/model/Statement;Lorg/junit/runner/Description;Lorg/junit/runner/notification/RunNotifier;)V+17
+j  org.junit.runners.BlockJUnit4ClassRunner.runChild(Lorg/junit/runners/model/FrameworkMethod;Lorg/junit/runner/notification/RunNotifier;)V+38
+j  org.junit.runners.BlockJUnit4ClassRunner.runChild(Ljava/lang/Object;Lorg/junit/runner/notification/RunNotifier;)V+6
+j  org.junit.runners.ParentRunner$4.run()V+12
+j  org.junit.runners.ParentRunner$1.schedule(Ljava/lang/Runnable;)V+1
+j  org.junit.runners.ParentRunner.runChildren(Lorg/junit/runner/notification/RunNotifier;)V+44
+j  org.junit.runners.ParentRunner.access$100(Lorg/junit/runners/ParentRunner;Lorg/junit/runner/notification/RunNotifier;)V+2
+j  org.junit.runners.ParentRunner$2.evaluate()V+8
+j  org.junit.runners.ParentRunner$3.evaluate()V+4
+j  org.junit.runners.ParentRunner.run(Lorg/junit/runner/notification/RunNotifier;)V+24
+j  org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(Ljava/lang/String;)V+280
+j  org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(Ljava/lang/String;)V+12
+j  org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(Ljava/lang/Object;)V+5
+j  org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(Lorg/gradle/api/internal/tasks/testing/TestClassRunInfo;)V+26
+j  org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(Lorg/gradle/api/internal/tasks/testing/TestClassRunInfo;)V+5
+v  ~StubRoutines::call_stub
+V  [libjvm.dylib+0x526442]  JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, JavaThread*)+0x2a2
+V  [libjvm.dylib+0x928ff8]  invoke(InstanceKlass*, methodHandle const&, Handle, bool, objArrayHandle, BasicType, objArrayHandle, bool, JavaThread*)+0xa18
+V  [libjvm.dylib+0x92858f]  Reflection::invoke_method(oopDesc*, Handle, objArrayHandle, JavaThread*)+0x12f
+V  [libjvm.dylib+0x5d155e]  JVM_InvokeMethod+0x30e
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0 java.base@17.0.6
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+133 java.base@17.0.6
+j  jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6 java.base@17.0.6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+59 java.base@17.0.6
+j  org.gradle.internal.dispatch.ReflectionDispatch.dispatch(Lorg/gradle/internal/dispatch/MethodInvocation;)V+19
+j  org.gradle.internal.dispatch.ReflectionDispatch.dispatch(Ljava/lang/Object;)V+5
+j  org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(Ljava/lang/Object;)V+22
+j  org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+177
+j  jdk.proxy1.$Proxy2.processTestClass(Lorg/gradle/api/internal/tasks/testing/TestClassRunInfo;)V+16 jdk.proxy1
+j  org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run()V+34
+j  org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(Ljava/lang/Runnable;)V+1
+j  org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(Lorg/gradle/process/internal/worker/WorkerProcessContext;)V+80
+j  org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(Ljava/lang/Object;)V+5
+j  org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(Lorg/gradle/process/internal/worker/WorkerProcessContext;)V+65
+j  org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call()Ljava/lang/Void;+293
+j  org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call()Ljava/lang/Object;+1
+j  worker.org.gradle.process.internal.worker.GradleWorkerMain.run()V+250
+...<more frames>...
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.danijax.paypayxchange.data.repository.ExchangeRateRepository.getRatesFor(Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;+4
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModel$getExchangeRates$1.invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;+60
+j  kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(Ljava/lang/Object;)V+44
+j  kotlinx.coroutines.internal.DispatchedContinuationKt.resumeCancellableWith(Lkotlin/coroutines/Continuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V+332
+j  kotlinx.coroutines.intrinsics.CancellableKt.startCoroutineCancellable(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;)V+27
+j  kotlinx.coroutines.intrinsics.CancellableKt.startCoroutineCancellable$default(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V+13
+j  kotlinx.coroutines.CoroutineStart.invoke(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V+46
+j  kotlinx.coroutines.AbstractCoroutine.start(Lkotlinx/coroutines/CoroutineStart;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V+7
+j  kotlinx.coroutines.BuildersKt__Builders_commonKt.launch(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;+48
+j  kotlinx.coroutines.BuildersKt.launch(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;+4
+j  kotlinx.coroutines.BuildersKt__Builders_commonKt.launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;+29
+j  kotlinx.coroutines.BuildersKt.launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;+8
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModel.getExchangeRates()V+23
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModel.updateSelectedCurrency(Ljava/lang/String;)V+17
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModelTest$selecting base currency updates shoud return new rates for the selected currency view model $1.invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;+592
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModelTest$selecting base currency updates shoud return new rates for the selected currency view model $1.invoke(Lkotlinx/coroutines/test/TestScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;+12
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModelTest$selecting base currency updates shoud return new rates for the selected currency view model $1.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+9
+j  kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$1.invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;+102
+j  kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(Ljava/lang/Object;)V+44
+j  kotlinx.coroutines.DispatchedTask.run()V+317
+j  kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test(Ljava/lang/Object;)V+26
+j  kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test(Lkotlin/jvm/functions/Function0;)Z+137
+j  kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;+69
+j  kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(Ljava/lang/Object;)V+44
+j  kotlinx.coroutines.DispatchedTask.run()V+317
+j  kotlinx.coroutines.EventLoopImplBase.processNextEvent()J+198
+j  kotlinx.coroutines.BlockingCoroutine.joinBlocking()Ljava/lang/Object;+75
+j  kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;+158
+j  kotlinx.coroutines.BuildersKt.runBlocking(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;+2
+j  kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;+15
+j  kotlinx.coroutines.BuildersKt.runBlocking$default(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;+4
+j  kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult(Lkotlin/jvm/functions/Function2;)V+15
+j  kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(Lkotlinx/coroutines/test/TestScope;JLkotlin/jvm/functions/Function2;)V+30
+j  kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(Lkotlinx/coroutines/test/TestScope;JLkotlin/jvm/functions/Function2;)V+3
+j  kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(Lkotlin/coroutines/CoroutineContext;JLkotlin/jvm/functions/Function2;)V+60
+j  kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(Lkotlin/coroutines/CoroutineContext;JLkotlin/jvm/functions/Function2;)V+3
+j  kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0$default(Lkotlin/coroutines/CoroutineContext;JLkotlin/jvm/functions/Function2;ILjava/lang/Object;)V+28
+j  kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0$default(Lkotlin/coroutines/CoroutineContext;JLkotlin/jvm/functions/Function2;ILjava/lang/Object;)V+7
+j  com.danijax.paypayxchange.ui.ExchangeRateViewModelTest.selecting base currency updates shoud return new rates for the selected currency view model ()V+16
+v  ~StubRoutines::call_stub
+J 1419  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@17.0.6 (0 bytes) @ 0x000000011642653f [0x00000001164264c0+0x000000000000007f]
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+133 java.base@17.0.6
+J 1337 c1 jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@17.0.6 (10 bytes) @ 0x000000010eb757e4 [0x000000010eb756c0+0x0000000000000124]
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+59 java.base@17.0.6
+j  org.junit.runners.model.FrameworkMethod$1.runReflectiveCall()Ljava/lang/Object;+15
+j  org.junit.internal.runners.model.ReflectiveCallable.run()Ljava/lang/Object;+1
+j  org.junit.runners.model.FrameworkMethod.invokeExplosively(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+10
+j  org.junit.internal.runners.statements.InvokeMethod.evaluate()V+12
+j  org.junit.internal.runners.statements.RunBefores.evaluate()V+41
+j  org.junit.rules.TestWatcher$1.evaluate()V+24
+j  org.junit.runners.ParentRunner$3.evaluate()V+4
+j  org.junit.runners.BlockJUnit4ClassRunner$1.evaluate()V+11
+j  org.junit.runners.ParentRunner.runLeaf(Lorg/junit/runners/model/Statement;Lorg/junit/runner/Description;Lorg/junit/runner/notification/RunNotifier;)V+17
+j  org.junit.runners.BlockJUnit4ClassRunner.runChild(Lorg/junit/runners/model/FrameworkMethod;Lorg/junit/runner/notification/RunNotifier;)V+38
+j  org.junit.runners.BlockJUnit4ClassRunner.runChild(Ljava/lang/Object;Lorg/junit/runner/notification/RunNotifier;)V+6
+j  org.junit.runners.ParentRunner$4.run()V+12
+j  org.junit.runners.ParentRunner$1.schedule(Ljava/lang/Runnable;)V+1
+j  org.junit.runners.ParentRunner.runChildren(Lorg/junit/runner/notification/RunNotifier;)V+44
+j  org.junit.runners.ParentRunner.access$100(Lorg/junit/runners/ParentRunner;Lorg/junit/runner/notification/RunNotifier;)V+2
+j  org.junit.runners.ParentRunner$2.evaluate()V+8
+j  org.junit.runners.ParentRunner$3.evaluate()V+4
+j  org.junit.runners.ParentRunner.run(Lorg/junit/runner/notification/RunNotifier;)V+24
+j  org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(Ljava/lang/String;)V+280
+j  org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(Ljava/lang/String;)V+12
+j  org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(Ljava/lang/Object;)V+5
+j  org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(Lorg/gradle/api/internal/tasks/testing/TestClassRunInfo;)V+26
+j  org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(Lorg/gradle/api/internal/tasks/testing/TestClassRunInfo;)V+5
+v  ~StubRoutines::call_stub
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0 java.base@17.0.6
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+133 java.base@17.0.6
+j  jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6 java.base@17.0.6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+59 java.base@17.0.6
+j  org.gradle.internal.dispatch.ReflectionDispatch.dispatch(Lorg/gradle/internal/dispatch/MethodInvocation;)V+19
+j  org.gradle.internal.dispatch.ReflectionDispatch.dispatch(Ljava/lang/Object;)V+5
+j  org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(Ljava/lang/Object;)V+22
+j  org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+177
+j  jdk.proxy1.$Proxy2.processTestClass(Lorg/gradle/api/internal/tasks/testing/TestClassRunInfo;)V+16 jdk.proxy1
+j  org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run()V+34
+j  org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(Ljava/lang/Runnable;)V+1
+j  org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(Lorg/gradle/process/internal/worker/WorkerProcessContext;)V+80
+j  org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(Ljava/lang/Object;)V+5
+j  org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(Lorg/gradle/process/internal/worker/WorkerProcessContext;)V+65
+j  org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call()Ljava/lang/Void;+293
+j  org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call()Ljava/lang/Object;+1
+j  worker.org.gradle.process.internal.worker.GradleWorkerMain.run()V+250
+j  worker.org.gradle.process.internal.worker.GradleWorkerMain.main([Ljava/lang/String;)V+7
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x0000000000000004
+
+Register to memory mapping:
+
+RAX=0x000000010b6e588f: _ZN11JvmtiExport24_should_post_single_stepE+0 in /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/server/libjvm.dylib at 0x000000010a972000
+RBX=0x00006000038a4058 points into unknown readable memory: 0x00000007e0535a00 | 00 5a 53 e0 07 00 00 00
+RCX=0x0000000000000001 is an unknown value
+RDX=0x00006000038a4060 points into unknown readable memory: 0x00000007e13562b8 | b8 62 35 e1 07 00 00 00
+RSP=0x0000700002d625a0 is pointing into the stack for thread: 0x00007fce7b808a00
+RBP=0x0000700002d625d0 is pointing into the stack for thread: 0x00007fce7b808a00
+RSI=0x00006000038a4058 points into unknown readable memory: 0x00000007e0535a00 | 00 5a 53 e0 07 00 00 00
+RDI=0x0 is NULL
+R8 =0x00007fce7b808a00 is a thread
+R9 =0x00007fce7b808a00 is a thread
+R10=0x000000010b7031c0: _ZN19TemplateInterpreter13_active_tableE+0x4000 in /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/server/libjvm.dylib at 0x000000010a972000
+R11=0x0000000000000001 is an unknown value
+R12=0x0 is NULL
+R13=0x00006000038a4060 points into unknown readable memory: 0x00000007e13562b8 | b8 62 35 e1 07 00 00 00
+R14=0x0000000000000001 is an unknown value
+R15=0x00007fce7b808a00 is a thread
+
+
+Registers:
+RAX=0x000000010b6e588f, RBX=0x00006000038a4058, RCX=0x0000000000000001, RDX=0x00006000038a4060
+RSP=0x0000700002d625a0, RBP=0x0000700002d625d0, RSI=0x00006000038a4058, RDI=0x0000000000000000
+R8 =0x00007fce7b808a00, R9 =0x00007fce7b808a00, R10=0x000000010b7031c0, R11=0x0000000000000001
+R12=0x0000000000000000, R13=0x00006000038a4060, R14=0x0000000000000001, R15=0x00007fce7b808a00
+RIP=0x000000010b3dc8ed, EFLAGS=0x0000000000010246, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x0000700002d625a0)
+0x0000700002d625a0:   000000010b6e588f 0000000000000000
+0x0000700002d625b0:   0000700002d62648 00006000038a4060
+0x0000700002d625c0:   00007fce7b808a00 00000007e13562b8
+0x0000700002d625d0:   0000700002d62630 000000010accac27
+0x0000700002d625e0:   0000000000000000 0000000000000000
+0x0000700002d625f0:   0000000000000000 00006000038a4058
+0x0000700002d62600:   000000007b808a00 0000000123698000
+0x0000700002d62610:   0000700002d62648 00000000000000b8
+0x0000700002d62620:   00007fce7b808a00 0000000000000000
+0x0000700002d62630:   0000700002d62680 000000010accb7f1
+0x0000700002d62640:   0000000000000048 0000000123698000
+0x0000700002d62650:   00007fce7b808a00 0000000123698000
+0x0000700002d62660:   0000700002d626d8 00007fce7b808a00
+0x0000700002d62670:   0000700002d627f8 000000000000ca27
+0x0000700002d62680:   0000700002d626c0 000000010b0ac3b3
+0x0000700002d62690:   0000700002d62828 0000000123a56b58
+0x0000700002d626a0:   0000700002d62780 0000000000000000
+0x0000700002d626b0:   00007fce7b808a00 0000700002d62788
+0x0000700002d626c0:   0000700002d62720 000000010b0b0f85
+0x0000700002d626d0:   0000700002d626f0 000000010ac872c5
+0x0000700002d626e0:   0000700002d62868 0000700002d62780
+0x0000700002d626f0:   0000700002d62720 0000000000000000
+0x0000700002d62700:   0000000000000000 00000000000000b8
+0x0000700002d62710:   0000000123699d3c 00007fce7b808a00
+0x0000700002d62720:   0000700002d62830 000000010ae91ade
+0x0000700002d62730:   0000600000723640 00006000012df480
+0x0000700002d62740:   00000000000000b8 000000080037f568
+0x0000700002d62750:   0000700002d62868 0000000115e3c65d
+0x0000700002d62760:   0000000115e21b10 00007fce00000000
+0x0000700002d62770:   0000700002d628c0 0000700002d62868
+0x0000700002d62780:   0000700002d62868 0000000000000000
+0x0000700002d62790:   0000000000000000 0000000000000000 
+
+Instructions: (pc=0x000000010b3dc8ed)
+0x000000010b3dc7ed:   00 66 90 55 48 89 e5 53 50 48 85 ff 74 1b 48 89
+0x000000010b3dc7fd:   fb 48 8d 05 29 62 30 00 80 38 00 75 0e 48 8b 3b
+0x000000010b3dc80d:   e8 ee 7c ac ff 84 c0 74 02 31 db 48 89 d8 48 83
+0x000000010b3dc81d:   c4 08 5b 5d c3 66 2e 0f 1f 84 00 00 00 00 00 0f
+0x000000010b3dc82d:   1f 40 00 55 48 89 e5 41 57 41 56 53 50 49 89 d7
+0x000000010b3dc83d:   49 89 f6 48 85 ff 74 3b 48 89 fb e8 f1 cc 12 00
+0x000000010b3dc84d:   3d 00 00 01 00 7c 57 48 89 1c 24 48 8d 35 9e f0
+0x000000010b3dc85d:   19 00 4c 8d 05 dc f0 19 00 4c 89 ff ba d1 00 00
+0x000000010b3dc86d:   00 4c 89 f1 41 b9 ff ff 00 00 31 c0 e8 c2 39 99
+0x000000010b3dc87d:   ff eb 1e 48 8d 35 76 f0 19 00 4c 8d 05 a0 f0 19
+0x000000010b3dc88d:   00 4c 89 ff ba cc 00 00 00 4c 89 f1 e8 62 37 99
+0x000000010b3dc89d:   ff 31 c0 48 83 c4 08 5b 41 5e 41 5f 5d c3 48 89
+0x000000010b3dc8ad:   df e8 8b cc 12 00 48 89 df 89 c6 48 83 c4 08 5b
+0x000000010b3dc8bd:   41 5e 41 5f 5d e9 69 7f ff ff 66 0f 1f 84 00 00
+0x000000010b3dc8cd:   00 00 00 55 48 89 e5 41 57 41 56 41 55 41 54 53
+0x000000010b3dc8dd:   50 4d 89 c7 41 89 ce 49 89 d5 48 89 f3 49 89 fc
+0x000000010b3dc8ed:   66 83 7f 04 02 72 2f 41 80 7c 24 06 5b 75 27 4c
+0x000000010b3dc8fd:   89 e7 e8 ac 1f f8 ff 84 c0 74 1b 4c 89 e7 48 89
+0x000000010b3dc90d:   de 4c 89 ea 4c 89 f9 e8 f7 02 00 00 48 89 c3 48
+0x000000010b3dc91d:   85 c0 75 1b eb 20 4c 89 e7 48 89 de 4c 89 ea 4c
+0x000000010b3dc92d:   89 f9 e8 0c 04 00 00 48 89 c3 48 85 c0 74 07 49
+0x000000010b3dc93d:   83 7f 08 00 74 18 41 0f b6 f6 4c 89 e7 4c 89 fa
+0x000000010b3dc94d:   e8 8e 00 00 00 49 83 7f 08 00 74 02 31 db 48 89
+0x000000010b3dc95d:   d8 48 83 c4 08 5b 41 5c 41 5d 41 5e 41 5f 5d c3
+0x000000010b3dc96d:   0f 1f 00 55 48 89 e5 41 57 41 56 41 54 53 49 89
+0x000000010b3dc97d:   ce 49 89 d7 49 89 f4 48 89 fb 66 83 7f 04 02 72
+0x000000010b3dc98d:   2b 80 7b 06 5b 75 25 48 89 df e8 14 1f f8 ff 84
+0x000000010b3dc99d:   c0 74 19 48 89 df 4c 89 e6 4c 89 fa 4c 89 f1 5b
+0x000000010b3dc9ad:   41 5c 41 5e 41 5f 5d e9 57 02 00 00 48 89 df 4c
+0x000000010b3dc9bd:   89 e6 4c 89 fa 4c 89 f1 5b 41 5c 41 5e 41 5f 5d
+0x000000010b3dc9cd:   e9 6e 03 00 00 66 2e 0f 1f 84 00 00 00 00 00 0f
+0x000000010b3dc9dd:   1f 40 00 55 48 89 e5 41 57 41 56 41 55 41 54 53 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x000000010b6e588f: _ZN11JvmtiExport24_should_post_single_stepE+0 in /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/server/libjvm.dylib at 0x000000010a972000
+stack at sp + 1 slots: 0x0 is NULL
+stack at sp + 2 slots: 0x0000700002d62648 is pointing into the stack for thread: 0x00007fce7b808a00
+stack at sp + 3 slots: 0x00006000038a4060 points into unknown readable memory: 0x00000007e13562b8 | b8 62 35 e1 07 00 00 00
+stack at sp + 4 slots: 0x00007fce7b808a00 is a thread
+stack at sp + 5 slots: 0x00000007e13562b8 is an oop: java.security.ProtectionDomain 
+{0x00000007e13562b8} - klass: 'java/security/ProtectionDomain'
+ - ---- fields (total size 5 words):
+ - private 'hasAllPerm' 'Z' @12  false
+ - private final 'staticPermissions' 'Z' @13  false
+ - private 'codesource' 'Ljava/security/CodeSource;' @16  a 'java/security/CodeSource'{0x00000007e13562e0} (fc26ac5c)
+ - private 'classloader' 'Ljava/lang/ClassLoader;' @20  a 'jdk/internal/loader/ClassLoaders$AppClassLoader'{0x00000007e0535a00} (fc0a6b40)
+ - private 'principals' '[Ljava/security/Principal;' @24  a 'java/security/Principal'[0] {0x00000007e13563b0} (fc26ac76)
+ - private 'permissions' 'Ljava/security/PermissionCollection;' @28  a 'sun/security/util/LazyCodeSourcePermissionCollection'{0x00000007e13563c0} (fc26ac78)
+ - final 'key' 'Ljava/security/ProtectionDomain$Key;' @32  a 'java/security/ProtectionDomain$Key'{0x00000007e1356580} (fc26acb0)
+stack at sp + 6 slots: 0x0000700002d62630 is pointing into the stack for thread: 0x00007fce7b808a00
+stack at sp + 7 slots: 0x000000010accac27: _ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread+0x1a7 in /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/server/libjvm.dylib at 0x000000010a972000
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00006000006ba9c0, length=20, elements={
+0x00007fce7b808a00, 0x00007fce790d1800, 0x00007fce790cfc00, 0x00007fce790d0200,
+0x00007fce7983a000, 0x00007fce7983a600, 0x00007fce7983ac00, 0x00007fce7d808200,
+0x00007fce7d812a00, 0x00007fce7b00fe00, 0x00007fce79845800, 0x00007fce7b808200,
+0x00007fce7b017e00, 0x00007fce7b8b2c00, 0x00007fce7d80a400, 0x00007fce7b8ca400,
+0x00007fce7b0fe800, 0x00007fce7b033200, 0x00007fce7b8b0000, 0x00007fce798e9600
+}
+_to_delete_list=0x0000600000742b80, length=21, elements={
+0x00007fce7b808a00, 0x00007fce790d1800, 0x00007fce790cfc00, 0x00007fce790d0200,
+0x00007fce7983a000, 0x00007fce7983a600, 0x00007fce7983ac00, 0x00007fce7d808200,
+0x00007fce7d812a00, 0x00007fce7b00fe00, 0x00007fce79845800, 0x00007fce7b808200,
+0x00007fce7b017e00, 0x00007fce7b8b2c00, 0x00007fce7d80a400, 0x00007fce7b8ca400,
+0x00007fce7b0fe800, 0x00007fce7b033200, 0x00007fce7b996400, 0x00007fce7b8b0000,
+0x00007fce798e9600
+}
+
+Java Threads: ( => current thread )
+=>0x00007fce7b808a00 JavaThread "Test worker @coroutine#15" [_thread_in_vm, id=10243, stack(0x0000700002c66000,0x0000700002d66000)]
+  0x00007fce790d1800 JavaThread "Reference Handler" daemon [_thread_blocked, id=19715, stack(0x000070000337b000,0x000070000347b000)]
+  0x00007fce790cfc00 JavaThread "Finalizer" daemon [_thread_blocked, id=19203, stack(0x000070000347e000,0x000070000357e000)]
+  0x00007fce790d0200 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=23555, stack(0x0000700003687000,0x0000700003787000)]
+  0x00007fce7983a000 JavaThread "Service Thread" daemon [_thread_blocked, id=24067, stack(0x000070000378a000,0x000070000388a000)]
+  0x00007fce7983a600 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=31235, stack(0x000070000388d000,0x000070000398d000)]
+  0x00007fce7983ac00 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=24579, stack(0x0000700003990000,0x0000700003a90000)]
+  0x00007fce7d808200 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=30723, stack(0x0000700003a93000,0x0000700003b93000)]
+  0x00007fce7d812a00 JavaThread "Sweeper thread" daemon [_thread_blocked, id=24835, stack(0x0000700003b96000,0x0000700003c96000)]
+  0x00007fce7b00fe00 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=30211, stack(0x0000700003c99000,0x0000700003d99000)]
+  0x00007fce79845800 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=25347, stack(0x0000700003d9c000,0x0000700003e9c000)]
+  0x00007fce7b808200 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=25859, stack(0x0000700003e9f000,0x0000700003f9f000)]
+  0x00007fce7b017e00 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=29443, stack(0x0000700003fa2000,0x00007000040a2000)]
+  0x00007fce7b8b2c00 JavaThread "Coroutines Debugger Cleaner" daemon [_thread_blocked, id=28931, stack(0x00007000040a5000,0x00007000041a5000)]
+  0x00007fce7d80a400 JavaThread "Notification Thread" daemon [_thread_blocked, id=26115, stack(0x00007000041a8000,0x00007000042a8000)]
+  0x00007fce7b8ca400 JavaThread "/127.0.0.1:59624 to /127.0.0.1:59622 workers" [_thread_blocked, id=27907, stack(0x00007000043ae000,0x00007000044ae000)]
+  0x00007fce7b0fe800 JavaThread "/127.0.0.1:59624 to /127.0.0.1:59622 workers Thread 2" [_thread_blocked, id=27651, stack(0x00007000044b1000,0x00007000045b1000)]
+  0x00007fce7b033200 JavaThread "/127.0.0.1:59624 to /127.0.0.1:59622 workers Thread 3" [_thread_in_native, id=26883, stack(0x00007000045b4000,0x00007000046b4000)]
+  0x00007fce7b8b0000 JavaThread "Attach Listener" daemon [_thread_blocked, id=35843, stack(0x00007000050fc000,0x00007000051fc000)]
+  0x00007fce798e9600 JavaThread "kotlinx.coroutines.DefaultExecutor" daemon [_thread_blocked, id=40451, stack(0x0000700005405000,0x0000700005505000)]
+
+Other Threads:
+  0x00007fce7a204f80 VMThread "VM Thread" [stack: 0x0000700003278000,0x0000700003378000] [id=19971]
+  0x00007fce7d20bee0 WatcherThread [stack: 0x00007000042ab000,0x00007000043ab000] [id=26371]
+  0x00007fce78f06f50 GCTaskThread "GC Thread#0" [stack: 0x0000700002d69000,0x0000700002e69000] [id=13315]
+  0x00007fce7a2287d0 GCTaskThread "GC Thread#1" [stack: 0x00007000046b7000,0x00007000047b7000] [id=32771]
+  0x00007fce7a228c40 GCTaskThread "GC Thread#2" [stack: 0x00007000047ba000,0x00007000048ba000] [id=43011]
+  0x00007fce7a2294a0 GCTaskThread "GC Thread#3" [stack: 0x00007000048bd000,0x00007000049bd000] [id=33027]
+  0x00007fce7a229d00 GCTaskThread "GC Thread#4" [stack: 0x00007000049c0000,0x0000700004ac0000] [id=33283]
+  0x00007fce7a22a560 GCTaskThread "GC Thread#5" [stack: 0x0000700004ac3000,0x0000700004bc3000] [id=42243]
+  0x00007fce7a22adc0 GCTaskThread "GC Thread#6" [stack: 0x0000700004bc6000,0x0000700004cc6000] [id=41731]
+  0x00007fce7a22b620 GCTaskThread "GC Thread#7" [stack: 0x0000700004cc9000,0x0000700004dc9000] [id=41475]
+  0x00007fce7a22c280 GCTaskThread "GC Thread#8" [stack: 0x0000700004dcc000,0x0000700004ecc000] [id=34307]
+  0x00007fce7d012400 GCTaskThread "GC Thread#9" [stack: 0x0000700004ecf000,0x0000700004fcf000] [id=41219]
+  0x00007fce78f075f0 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000700002e6c000,0x0000700002f6c000] [id=12035]
+  0x00007fce78f07e70 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000700002f6f000,0x000070000306f000] [id=12547]
+  0x00007fce7d024a50 ConcurrentGCThread "G1 Conc#1" [stack: 0x00007000051ff000,0x00007000052ff000] [id=36355]
+  0x00007fce78f22cc0 ConcurrentGCThread "G1 Conc#2" [stack: 0x0000700005302000,0x0000700005402000] [id=36867]
+  0x00007fce78f0aed0 ConcurrentGCThread "G1 Refine#0" [stack: 0x0000700003072000,0x0000700003172000] [id=16643]
+  0x00007fce7a22be80 ConcurrentGCThread "G1 Refine#1" [stack: 0x0000700004fd2000,0x00007000050d2000] [id=40963]
+  0x00007fce7d004080 ConcurrentGCThread "G1 Service" [stack: 0x0000700003175000,0x0000700003275000] [id=17155]
+
+Threads with active compile tasks:
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x00000007e0000000, size: 512 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) not mapped
+Compressed class space mapped at: 0x0000000800000000-0x0000000840000000, reserved size: 1073741824
+Narrow klass base: 0x0000000800000000, Narrow klass shift: 0, Narrow klass range: 0x40000000
+
+GC Precious Log:
+ CPUs: 12 total, 12 available
+ Memory: 16384M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 1M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 256M
+ Heap Max Capacity: 512M
+ Pre-touch: Disabled
+ Parallel Workers: 10
+ Concurrent Workers: 3
+ Concurrent Refinement Workers: 10
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 40960K, used 21458K [0x00000007e0000000, 0x0000000800000000)
+  region size 1024K, 15 young (15360K), 3 survivors (3072K)
+ Metaspace       used 26214K, committed 26496K, reserved 1073152K
+  class space    used 3450K, committed 3584K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x00000007e0000000, 0x00000007e0100000, 0x00000007e0100000|100%| O|  |TAMS 0x00000007e0100000, 0x00000007e0000000| Untracked 
+|   1|0x00000007e0100000, 0x00000007e0200000, 0x00000007e0200000|100%| O|  |TAMS 0x00000007e0200000, 0x00000007e0100000| Untracked 
+|   2|0x00000007e0200000, 0x00000007e0300000, 0x00000007e0300000|100%| O|  |TAMS 0x00000007e0300000, 0x00000007e0200000| Untracked 
+|   3|0x00000007e0300000, 0x00000007e0400000, 0x00000007e0400000|100%| O|  |TAMS 0x00000007e0400000, 0x00000007e0300000| Untracked 
+|   4|0x00000007e0400000, 0x00000007e0500000, 0x00000007e0500000|100%| O|  |TAMS 0x00000007e0500000, 0x00000007e0400000| Untracked 
+|   5|0x00000007e0500000, 0x00000007e0600000, 0x00000007e0600000|100%| O|  |TAMS 0x00000007e0600000, 0x00000007e0500000| Untracked 
+|   6|0x00000007e0600000, 0x00000007e0700000, 0x00000007e0700000|100%| O|  |TAMS 0x00000007e0700000, 0x00000007e0600000| Untracked 
+|   7|0x00000007e0700000, 0x00000007e0800000, 0x00000007e0800000|100%| O|  |TAMS 0x00000007e0800000, 0x00000007e0700000| Untracked 
+|   8|0x00000007e0800000, 0x00000007e087f800, 0x00000007e0900000| 49%| O|  |TAMS 0x00000007e087f800, 0x00000007e0800000| Untracked 
+|   9|0x00000007e0900000, 0x00000007e0900000, 0x00000007e0a00000|  0%| F|  |TAMS 0x00000007e0900000, 0x00000007e0900000| Untracked 
+|  10|0x00000007e0a00000, 0x00000007e0a00000, 0x00000007e0b00000|  0%| F|  |TAMS 0x00000007e0a00000, 0x00000007e0a00000| Untracked 
+|  11|0x00000007e0b00000, 0x00000007e0b00000, 0x00000007e0c00000|  0%| F|  |TAMS 0x00000007e0b00000, 0x00000007e0b00000| Untracked 
+|  12|0x00000007e0c00000, 0x00000007e0c00000, 0x00000007e0d00000|  0%| F|  |TAMS 0x00000007e0c00000, 0x00000007e0c00000| Untracked 
+|  13|0x00000007e0d00000, 0x00000007e0d00000, 0x00000007e0e00000|  0%| F|  |TAMS 0x00000007e0d00000, 0x00000007e0d00000| Untracked 
+|  14|0x00000007e0e00000, 0x00000007e0e00000, 0x00000007e0f00000|  0%| F|  |TAMS 0x00000007e0e00000, 0x00000007e0e00000| Untracked 
+|  15|0x00000007e0f00000, 0x00000007e0f00000, 0x00000007e1000000|  0%| F|  |TAMS 0x00000007e0f00000, 0x00000007e0f00000| Untracked 
+|  16|0x00000007e1000000, 0x00000007e1000000, 0x00000007e1100000|  0%| F|  |TAMS 0x00000007e1000000, 0x00000007e1000000| Untracked 
+|  17|0x00000007e1100000, 0x00000007e11752d0, 0x00000007e1200000| 45%| S|CS|TAMS 0x00000007e1100000, 0x00000007e1100000| Complete 
+|  18|0x00000007e1200000, 0x00000007e1300000, 0x00000007e1300000|100%| S|CS|TAMS 0x00000007e1200000, 0x00000007e1200000| Complete 
+|  19|0x00000007e1300000, 0x00000007e1400000, 0x00000007e1400000|100%| S|CS|TAMS 0x00000007e1300000, 0x00000007e1300000| Complete 
+|  20|0x00000007e1400000, 0x00000007e1400000, 0x00000007e1500000|  0%| F|  |TAMS 0x00000007e1400000, 0x00000007e1400000| Untracked 
+|  21|0x00000007e1500000, 0x00000007e1500000, 0x00000007e1600000|  0%| F|  |TAMS 0x00000007e1500000, 0x00000007e1500000| Untracked 
+|  22|0x00000007e1600000, 0x00000007e1600000, 0x00000007e1700000|  0%| F|  |TAMS 0x00000007e1600000, 0x00000007e1600000| Untracked 
+|  23|0x00000007e1700000, 0x00000007e1700000, 0x00000007e1800000|  0%| F|  |TAMS 0x00000007e1700000, 0x00000007e1700000| Untracked 
+|  24|0x00000007e1800000, 0x00000007e1800000, 0x00000007e1900000|  0%| F|  |TAMS 0x00000007e1800000, 0x00000007e1800000| Untracked 
+|  25|0x00000007e1900000, 0x00000007e1900000, 0x00000007e1a00000|  0%| F|  |TAMS 0x00000007e1900000, 0x00000007e1900000| Untracked 
+|  26|0x00000007e1a00000, 0x00000007e1a00000, 0x00000007e1b00000|  0%| F|  |TAMS 0x00000007e1a00000, 0x00000007e1a00000| Untracked 
+|  27|0x00000007e1b00000, 0x00000007e1b00000, 0x00000007e1c00000|  0%| F|  |TAMS 0x00000007e1b00000, 0x00000007e1b00000| Untracked 
+|  28|0x00000007e1c00000, 0x00000007e1c91ef8, 0x00000007e1d00000| 57%| E|  |TAMS 0x00000007e1c00000, 0x00000007e1c00000| Complete 
+|  29|0x00000007e1d00000, 0x00000007e1e00000, 0x00000007e1e00000|100%| E|CS|TAMS 0x00000007e1d00000, 0x00000007e1d00000| Complete 
+|  30|0x00000007e1e00000, 0x00000007e1f00000, 0x00000007e1f00000|100%| E|CS|TAMS 0x00000007e1e00000, 0x00000007e1e00000| Complete 
+|  31|0x00000007e1f00000, 0x00000007e2000000, 0x00000007e2000000|100%| E|CS|TAMS 0x00000007e1f00000, 0x00000007e1f00000| Complete 
+|  32|0x00000007e2000000, 0x00000007e2100000, 0x00000007e2100000|100%| E|CS|TAMS 0x00000007e2000000, 0x00000007e2000000| Complete 
+|  33|0x00000007e2100000, 0x00000007e2200000, 0x00000007e2200000|100%| E|CS|TAMS 0x00000007e2100000, 0x00000007e2100000| Complete 
+|  34|0x00000007e2200000, 0x00000007e2300000, 0x00000007e2300000|100%| E|CS|TAMS 0x00000007e2200000, 0x00000007e2200000| Complete 
+|  35|0x00000007e2300000, 0x00000007e2400000, 0x00000007e2400000|100%| E|CS|TAMS 0x00000007e2300000, 0x00000007e2300000| Complete 
+|  36|0x00000007e2400000, 0x00000007e2500000, 0x00000007e2500000|100%| E|CS|TAMS 0x00000007e2400000, 0x00000007e2400000| Complete 
+| 231|0x00000007ee700000, 0x00000007ee800000, 0x00000007ee800000|100%| E|CS|TAMS 0x00000007ee700000, 0x00000007ee700000| Complete 
+| 232|0x00000007ee800000, 0x00000007ee900000, 0x00000007ee900000|100%| E|CS|TAMS 0x00000007ee800000, 0x00000007ee800000| Complete 
+| 255|0x00000007eff00000, 0x00000007f0000000, 0x00000007f0000000|100%| E|  |TAMS 0x00000007eff00000, 0x00000007eff00000| Complete 
+
+Card table byte_map: [0x000000010989d000,0x000000010999d000] _byte_map_base: 0x000000010599d000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x00007fce79023450, (CMBitMap*) 0x00007fce79023410
+ Prev Bits: [0x000000011d8e2000, 0x000000011e0e2000)
+ Next Bits: [0x0000000109a9d000, 0x000000010a29d000)
+
+Polling page: 0x0000000109452000
+
+Metaspace:
+
+Usage:
+  Non-class:     22.23 MB used.
+      Class:      3.37 MB used.
+       Both:     25.60 MB used.
+
+Virtual space:
+  Non-class space:       24.00 MB reserved,      22.38 MB ( 93%) committed,  3 nodes.
+      Class space:        1.00 GB reserved,       3.50 MB ( <1%) committed,  1 nodes.
+             Both:        1.02 GB reserved,      25.88 MB (  2%) committed. 
+
+Chunk freelists:
+   Non-Class:  1.58 MB
+       Class:  496.00 KB
+        Both:  2.06 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 35.12 MB
+CDS: off
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 1048576.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+ - handle_deallocations: 1.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 3.
+num_arena_births: 186.
+num_arena_deaths: 0.
+num_vsnodes_births: 4.
+num_vsnodes_deaths: 0.
+num_space_committed: 414.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 3.
+num_chunks_taken_from_freelist: 783.
+num_chunk_merges: 3.
+num_chunk_splits: 560.
+num_chunks_enlarged: 440.
+num_purges: 0.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120028Kb used=1078Kb max_used=1078Kb free=118949Kb
+ bounds [0x00000001163ab000, 0x000000011661b000, 0x000000011d8e2000]
+CodeHeap 'profiled nmethods': size=120028Kb used=4372Kb max_used=4372Kb free=115655Kb
+ bounds [0x000000010e8e2000, 0x000000010ed32000, 0x0000000115e19000]
+CodeHeap 'non-nmethods': size=5704Kb used=1278Kb max_used=1352Kb free=4425Kb
+ bounds [0x0000000115e19000, 0x0000000116089000, 0x00000001163ab000]
+ total_blobs=2799 nmethods=2270 adapters=442
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 236.045 Thread 0x00007fce7d808200 2282       3       java.io.FileCleanable::register (49 bytes)
+Event: 236.046 Thread 0x00007fce7d808200 nmethod 2282 0x000000010ed21e90 code [0x000000010ed220a0, 0x000000010ed22910]
+Event: 236.046 Thread 0x00007fce7d808200 2283       3       java.io.FileDescriptor::valid (25 bytes)
+Event: 236.046 Thread 0x00007fce7d808200 nmethod 2283 0x000000010ed22c90 code [0x000000010ed22e20, 0x000000010ed22fd0]
+Event: 236.046 Thread 0x00007fce7d808200 2284       3       java.io.FileDescriptor$1::get (5 bytes)
+Event: 236.046 Thread 0x00007fce7d808200 nmethod 2284 0x000000010ed23090 code [0x000000010ed23220, 0x000000010ed23330]
+Event: 236.047 Thread 0x00007fce7983ac00 2285   !   4       java.util.concurrent.ConcurrentHashMap::putVal (433 bytes)
+Event: 236.048 Thread 0x00007fce7d808200 2286       3       java.util.concurrent.ConcurrentHashMap::containsKey (14 bytes)
+Event: 236.048 Thread 0x00007fce7d808200 nmethod 2286 0x000000010ed23410 code [0x000000010ed235c0, 0x000000010ed23760]
+Event: 236.049 Thread 0x00007fce7d808200 2288       3       java.util.jar.JarFile::getManEntry (39 bytes)
+Event: 236.050 Thread 0x00007fce7d808200 nmethod 2288 0x000000010ed23810 code [0x000000010ed239e0, 0x000000010ed23db0]
+Event: 236.058 Thread 0x00007fce7d808200 2289       3       jdk.internal.misc.Unsafe::getAndAddInt (27 bytes)
+Event: 236.058 Thread 0x00007fce7d808200 nmethod 2289 0x000000010ed23f10 code [0x000000010ed240c0, 0x000000010ed24300]
+Event: 236.071 Thread 0x00007fce7983ac00 nmethod 2285 0x00000001164b2810 code [0x00000001164b2a20, 0x00000001164b40f0]
+Event: 236.071 Thread 0x00007fce7983ac00 2287       4       jdk.internal.loader.URLClassPath::getResource (74 bytes)
+Event: 236.127 Thread 0x00007fce7983ac00 nmethod 2287 0x00000001164b4e90 code [0x00000001164b5180, 0x00000001164b76d0]
+Event: 236.138 Thread 0x00007fce7d808200 2290       3       kotlin.coroutines.jvm.internal.ContinuationImpl::getContext (9 bytes)
+Event: 236.138 Thread 0x00007fce7d808200 nmethod 2290 0x000000010ed24410 code [0x000000010ed24620, 0x000000010ed24ba0]
+Event: 236.138 Thread 0x00007fce7d808200 2291       3       kotlinx.coroutines.debug.internal.DebugProbesImpl::updateState (86 bytes)
+Event: 236.139 Thread 0x00007fce7d808200 nmethod 2291 0x000000010ed24e10 code [0x000000010ed25120, 0x000000010ed263c0]
+
+GC Heap History (8 events):
+Event: 0.631 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 262144K, used 22528K [0x00000007e0000000, 0x0000000800000000)
+  region size 1024K, 23 young (23552K), 0 survivors (0K)
+ Metaspace       used 12740K, committed 12928K, reserved 1064960K
+  class space    used 1491K, committed 1600K, reserved 1048576K
+}
+Event: 0.635 GC heap after
+{Heap after GC invocations=1 (full 0):
+ garbage-first heap   total 262144K, used 8406K [0x00000007e0000000, 0x0000000800000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 12740K, committed 12928K, reserved 1064960K
+  class space    used 1491K, committed 1600K, reserved 1048576K
+}
+Event: 1.297 GC heap before
+{Heap before GC invocations=1 (full 0):
+ garbage-first heap   total 262144K, used 30934K [0x00000007e0000000, 0x0000000800000000)
+  region size 1024K, 25 young (25600K), 3 survivors (3072K)
+ Metaspace       used 17516K, committed 17728K, reserved 1064960K
+  class space    used 2209K, committed 2304K, reserved 1048576K
+}
+Event: 1.299 GC heap after
+{Heap after GC invocations=2 (full 0):
+ garbage-first heap   total 262144K, used 9899K [0x00000007e0000000, 0x0000000800000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 17516K, committed 17728K, reserved 1064960K
+  class space    used 2209K, committed 2304K, reserved 1048576K
+}
+Event: 1.622 GC heap before
+{Heap before GC invocations=2 (full 0):
+ garbage-first heap   total 262144K, used 31403K [0x00000007e0000000, 0x0000000800000000)
+  region size 1024K, 24 young (24576K), 2 survivors (2048K)
+ Metaspace       used 21306K, committed 21504K, reserved 1073152K
+  class space    used 2896K, committed 3008K, reserved 1048576K
+}
+Event: 1.623 GC heap after
+{Heap after GC invocations=3 (full 0):
+ garbage-first heap   total 262144K, used 10730K [0x00000007e0000000, 0x0000000800000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 21306K, committed 21504K, reserved 1073152K
+  class space    used 2896K, committed 3008K, reserved 1048576K
+}
+Event: 2.226 GC heap before
+{Heap before GC invocations=4 (full 0):
+ garbage-first heap   total 40960K, used 30186K [0x00000007e0000000, 0x0000000800000000)
+  region size 1024K, 20 young (20480K), 2 survivors (2048K)
+ Metaspace       used 24485K, committed 24768K, reserved 1073152K
+  class space    used 3226K, committed 3392K, reserved 1048576K
+}
+Event: 2.229 GC heap after
+{Heap after GC invocations=5 (full 0):
+ garbage-first heap   total 40960K, used 11218K [0x00000007e0000000, 0x0000000800000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 24485K, committed 24768K, reserved 1073152K
+  class space    used 3226K, committed 3392K, reserved 1048576K
+}
+
+Dll operation events (10 events):
+Event: 0.013 Loaded shared library /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libjava.dylib
+Event: 0.180 Loaded shared library /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libzip.dylib
+Event: 0.182 Loaded shared library /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libinstrument.dylib
+Event: 0.191 Loaded shared library /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libnio.dylib
+Event: 0.204 Loaded shared library /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libzip.dylib
+Event: 0.256 Loaded shared library /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libjimage.dylib
+Event: 0.369 Loaded shared library /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libverify.dylib
+Event: 0.410 Loaded shared library /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libnet.dylib
+Event: 0.542 Loaded shared library /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libextnet.dylib
+Event: 1.064 Loaded shared library /Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libinstrument.dylib
+
+Deoptimization events (20 events):
+Event: 235.883 Thread 0x00007fce798e9600 DEOPT PACKING pc=0x000000010ea1ee4c sp=0x00007000055037c0
+Event: 235.883 Thread 0x00007fce798e9600 DEOPT UNPACKING pc=0x0000000115e6fe2f sp=0x0000700005502c18 mode 1
+Event: 235.883 Thread 0x00007fce798e9600 DEOPT PACKING pc=0x000000010ea1d85c sp=0x0000700005503890
+Event: 235.883 Thread 0x00007fce798e9600 DEOPT UNPACKING pc=0x0000000115e6fe2f sp=0x0000700005502d98 mode 1
+Event: 235.883 Thread 0x00007fce798e9600 DEOPT PACKING pc=0x000000010ec8a5d5 sp=0x00007000055033a0
+Event: 235.883 Thread 0x00007fce798e9600 DEOPT UNPACKING pc=0x0000000115e6fe2f sp=0x0000700005502848 mode 0
+Event: 235.907 Thread 0x00007fce798e9600 DEOPT PACKING pc=0x000000010ec8a5d5 sp=0x0000700005503860
+Event: 235.907 Thread 0x00007fce798e9600 DEOPT UNPACKING pc=0x0000000115e6fe2f sp=0x0000700005502d20 mode 0
+Event: 235.941 Thread 0x00007fce798e9600 DEOPT PACKING pc=0x000000010ec8a5d5 sp=0x0000700005503780
+Event: 235.941 Thread 0x00007fce798e9600 DEOPT UNPACKING pc=0x0000000115e6fe2f sp=0x0000700005502c40 mode 0
+Event: 236.037 Thread 0x00007fce7b808a00 DEOPT PACKING pc=0x000000010ecbac5b sp=0x0000700002d618e0
+Event: 236.037 Thread 0x00007fce7b808a00 DEOPT UNPACKING pc=0x0000000115e6fe2f sp=0x0000700002d60e28 mode 0
+Event: 236.048 Thread 0x00007fce798e9600 DEOPT PACKING pc=0x000000010eac7c74 sp=0x0000700005502210
+Event: 236.048 Thread 0x00007fce798e9600 DEOPT UNPACKING pc=0x0000000115e6fe2f sp=0x00007000055016c8 mode 1
+Event: 236.048 Thread 0x00007fce798e9600 DEOPT PACKING pc=0x000000010e9bffdc sp=0x00007000055022e0
+Event: 236.048 Thread 0x00007fce798e9600 DEOPT UNPACKING pc=0x0000000115e6fe2f sp=0x00007000055017b8 mode 1
+Event: 236.048 Thread 0x00007fce798e9600 DEOPT PACKING pc=0x000000010eb3138c sp=0x00007000055029f0
+Event: 236.048 Thread 0x00007fce798e9600 DEOPT UNPACKING pc=0x0000000115e6fe2f sp=0x0000700005501ee0 mode 1
+Event: 236.048 Thread 0x00007fce798e9600 DEOPT PACKING pc=0x000000010ec66740 sp=0x0000700005502090
+Event: 236.048 Thread 0x00007fce798e9600 DEOPT UNPACKING pc=0x0000000115e6fe2f sp=0x0000700005501548 mode 0
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (3 events):
+Event: 1.918 Thread 0x00007fce7a204f80 redefined class name=java.lang.Object, count=1
+Event: 1.918 Thread 0x00007fce7a204f80 redefined class name=com.danijax.paypayxchange.data.repository.ExchangeRateRepository, count=2
+Event: 1.918 Thread 0x00007fce7a204f80 redefined class name=com.danijax.paypayxchange.data.repository.Repository, count=2
+
+Internal exceptions (20 events):
+Event: 0.760 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007ef705710}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, long)'> (0x00000007ef705710) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 0.761 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007ef709ca8}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, long, java.lang.Object)'> (0x00000007ef709ca8) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 0.770 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007ef750068}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x00000007ef750068) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 0.771 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007ef7546f0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x00000007ef7546f0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 0.771 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007ef758560}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x00000007ef758560) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 1.436 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007ef6c92c0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007ef6c92c0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 1.441 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007ef5279b8}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007ef5279b8) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 1.442 Thread 0x00007fce7b808a00 Exception <a 'java/lang/IncompatibleClassChangeError'{0x00000007ef530dc0}: Found class java.lang.Object, but interface was expected> (0x00000007ef530dc0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 838]
+Event: 1.442 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007ef5340a0}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object)'> (0x00000007ef5340a0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 1.443 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007ef53b600}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object)'> (0x00000007ef53b600) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 1.488 Thread 0x00007fce7b808a00 Exception <a 'java/lang/ClassNotFoundException'{0x00000007ef25cda0}: java/lang/ClassLoader$ByteBuddyAccessor$V1> (0x00000007ef25cda0) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 256]
+Event: 1.748 Thread 0x00007fce7b808a00 Implicit null exception at 0x00000001164206b9 to 0x0000000116420c44
+Event: 1.748 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007eff41848}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007eff41848) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 1.933 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007e20251d0}: 'java.lang.Object java.lang.invoke.Invokers$Holder.invoker(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007e20251d0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 1.936 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007e202f7d8}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007e202f7d8) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 1.943 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007e204c988}: 'java.lang.Object java.lang.invoke.Invokers$Holder.invoker(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007e204c988) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 1.973 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007e20d37f8}: 'int java.lang.invoke.DelegatingMethodHandle$Holder.reinvoke_L(java.lang.Object)'> (0x00000007e20d37f8) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 2.352 Thread 0x00007fce7b808a00 Exception <a 'java/lang/IncompatibleClassChangeError'{0x00000007e226c858}: Found class java.lang.Object, but interface was expected> (0x00000007e226c858) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 838]
+Event: 2.360 Thread 0x00007fce7b808a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000007e228e3b0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, int, java.lang.Object)'> (0x00000007e228e3b0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 771]
+Event: 236.016 Thread 0x00007fce7b808a00 Exception <a 'java/lang/ClassCastException'{0x00000007e1fbb628}: class com.danijax.paypayxchange.api.Result$Success cannot be cast to class java.util.List (com.danijax.paypayxchange.api.Result$Success is in unnamed module of loader 'app'; java.util.List is in module java.base of loader 'bootstrap')> (0x00000007e1fbb628) 
+thrown [src/hotspot/share/interpreter/interpreterRuntime.cpp, line 444]
+
+VM Operations (20 events):
+Event: 236.319 Executing VM operation: get/set locals
+Event: 236.319 Executing VM operation: get/set locals done
+Event: 236.319 Executing VM operation: get/set locals
+Event: 236.319 Executing VM operation: get/set locals done
+Event: 236.320 Executing VM operation: get/set locals
+Event: 236.320 Executing VM operation: get/set locals done
+Event: 236.321 Executing VM operation: get/set locals
+Event: 236.321 Executing VM operation: get/set locals done
+Event: 236.322 Executing VM operation: get/set locals
+Event: 236.322 Executing VM operation: get/set locals done
+Event: 236.323 Executing VM operation: get/set locals
+Event: 236.323 Executing VM operation: get/set locals done
+Event: 236.323 Executing VM operation: get/set locals
+Event: 236.323 Executing VM operation: get/set locals done
+Event: 236.324 Executing VM operation: get/set locals
+Event: 236.324 Executing VM operation: get/set locals done
+Event: 236.329 Executing VM operation: get/set locals
+Event: 236.329 Executing VM operation: get/set locals done
+Event: 236.333 Executing VM operation: get/set locals
+Event: 236.333 Executing VM operation: get/set locals done
+
+Events (20 events):
+Event: 236.049 loading class kotlin/reflect/KType
+Event: 236.049 loading class com/danijax/paypayxchange/ui/ExchangeRateViewModel$getExchangeRates$1
+Event: 236.049 loading class kotlin/reflect/KType done
+Event: 236.049 loading class com/danijax/paypayxchange/ui/ExchangeRateViewModel$getExchangeRates$1 done
+Event: 236.049 loading class kotlin/reflect/KTypeParameter
+Event: 236.049 loading class kotlin/reflect/KTypeParameter done
+Event: 236.050 loading class kotlin/reflect/KMutableProperty1
+Event: 236.050 loading class kotlin/reflect/KMutableProperty1 done
+Event: 236.050 loading class kotlin/reflect/KMutableProperty
+Event: 236.050 loading class kotlin/reflect/KMutableProperty done
+Event: 236.051 loading class kotlin/reflect/KMutableProperty0
+Event: 236.051 loading class kotlin/reflect/KMutableProperty0 done
+Event: 236.051 loading class kotlin/reflect/KMutableProperty2
+Event: 236.051 loading class kotlin/reflect/KMutableProperty2 done
+Event: 236.051 loading class kotlin/reflect/KClass
+Event: 236.051 loading class kotlin/reflect/KClass done
+Event: 239.354 loading class kotlin/jvm/internal/ClassReference
+Event: 239.354 loading class kotlin/jvm/internal/ClassReference done
+Event: 239.355 loading class kotlin/jvm/internal/ClassBasedDeclarationContainer
+Event: 239.355 loading class kotlin/jvm/internal/ClassBasedDeclarationContainer done
+
+
+Dynamic libraries:
+0x0000000109454000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libjli.dylib
+0x00007ff81b851000 	/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+0x00007ff8056f9000 	/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+0x00007ff808305000 	/System/Library/Frameworks/CoreData.framework/Versions/A/CoreData
+0x00007ff8034d1000 	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+0x00007ff80e41a000 	/usr/lib/libSystem.B.dylib
+0x00007ff806701000 	/System/Library/PrivateFrameworks/UIFoundation.framework/Versions/A/UIFoundation
+0x00007ffb08cad000 	/System/Library/PrivateFrameworks/CollectionViewCore.framework/Versions/A/CollectionViewCore
+0x00007ff81578b000 	/System/Library/PrivateFrameworks/RemoteViewServices.framework/Versions/A/RemoteViewServices
+0x00007ff80c3eb000 	/System/Library/PrivateFrameworks/XCTTargetBootstrap.framework/Versions/A/XCTTargetBootstrap
+0x00007ff811277000 	/System/Library/PrivateFrameworks/InternationalSupport.framework/Versions/A/InternationalSupport
+0x00007ff811300000 	/System/Library/PrivateFrameworks/UserActivity.framework/Versions/A/UserActivity
+0x00007ffb1fa58000 	/System/Library/PrivateFrameworks/WindowManagement.framework/Versions/A/WindowManagement
+0x00007ff8031c0000 	/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration
+0x00007ff81064f000 	/usr/lib/libspindump.dylib
+0x00007ff8068cf000 	/System/Library/Frameworks/UniformTypeIdentifiers.framework/Versions/A/UniformTypeIdentifiers
+0x00007ff80a5b0000 	/usr/lib/libapp_launch_measurement.dylib
+0x00007ff809791000 	/System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics
+0x00007ff80a5b3000 	/System/Library/PrivateFrameworks/CoreAutoLayout.framework/Versions/A/CoreAutoLayout
+0x00007ff80bc58000 	/System/Library/Frameworks/Metal.framework/Versions/A/Metal
+0x00007ff80cb70000 	/usr/lib/liblangid.dylib
+0x00007ff80c3f0000 	/System/Library/PrivateFrameworks/CoreSVG.framework/Versions/A/CoreSVG
+0x00007ff807233000 	/System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLight
+0x00007ff807624000 	/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics
+0x00007ff815e70000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate
+0x00007ff8100c0000 	/System/Library/PrivateFrameworks/IconServices.framework/Versions/A/IconServices
+0x00007ff80bc39000 	/System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface
+0x00007ff8097bc000 	/usr/lib/libDiagnosticMessagesClient.dylib
+0x00007ff80e332000 	/usr/lib/libz.1.dylib
+0x00007ff819523000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+0x00007ff80c3d7000 	/System/Library/PrivateFrameworks/DFRFoundation.framework/Versions/A/DFRFoundation
+0x00007ff804fc5000 	/usr/lib/libicucore.A.dylib
+0x00007ff812111000 	/System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox
+0x00007ff811282000 	/System/Library/PrivateFrameworks/DataDetectorsCore.framework/Versions/A/DataDetectorsCore
+0x00007ff909fad000 	/System/Library/PrivateFrameworks/TextInput.framework/Versions/A/TextInput
+0x00007ff80719c000 	/usr/lib/libMobileGestalt.dylib
+0x00007ff80c0df000 	/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+0x00007ff809f3d000 	/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+0x00007ff804c38000 	/System/Library/Frameworks/Security.framework/Versions/A/Security
+0x00007ff8157c3000 	/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SpeechRecognition.framework/Versions/A/SpeechRecognition
+0x00007ff80a2ef000 	/System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/CoreUI
+0x00007ff804586000 	/System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio
+0x00007ff809895000 	/System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration
+0x00007ff810a71000 	/System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport
+0x00007ff80719b000 	/usr/lib/libenergytrace.dylib
+0x00007ff8055da000 	/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit
+0x00007ff815bc0000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+0x00007ff80a548000 	/System/Library/PrivateFrameworks/PerformanceAnalysis.framework/Versions/A/PerformanceAnalysis
+0x00007ffa1b68e000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL
+0x00007ff80a5fb000 	/usr/lib/libxml2.2.dylib
+0x00007ff80d7cc000 	/System/Library/PrivateFrameworks/MobileKeyBag.framework/Versions/A/MobileKeyBag
+0x00007ff80222f000 	/usr/lib/libobjc.A.dylib
+0x00007ff8024fa000 	/usr/lib/libc++.1.dylib
+0x00007ff807d3b000 	/System/Library/Frameworks/ColorSync.framework/Versions/A/ColorSync
+0x00007ff80262a000 	/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+0x00007ff80c73c000 	/System/Library/Frameworks/CoreImage.framework/Versions/A/CoreImage
+0x00007ff804394000 	/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText
+0x00007ff80c427000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+0x00007ff80e420000 	/System/Library/PrivateFrameworks/SoftLinking.framework/Versions/A/SoftLinking
+0x00007ff80e6a2000 	/usr/lib/libcompression.dylib
+0x00007ff8111b0000 	/System/Library/PrivateFrameworks/TextureIO.framework/Versions/A/TextureIO
+0x00007ff80fd80000 	/usr/lib/libate.dylib
+0x00007ff80e414000 	/usr/lib/system/libcache.dylib
+0x00007ff80e3cb000 	/usr/lib/system/libcommonCrypto.dylib
+0x00007ff80e3f8000 	/usr/lib/system/libcompiler_rt.dylib
+0x00007ff80e3ea000 	/usr/lib/system/libcopyfile.dylib
+0x00007ff802363000 	/usr/lib/system/libcorecrypto.dylib
+0x00007ff802427000 	/usr/lib/system/libdispatch.dylib
+0x00007ff8025d1000 	/usr/lib/system/libdyld.dylib
+0x00007ff80e40a000 	/usr/lib/system/libkeymgr.dylib
+0x00007ff80e3aa000 	/usr/lib/system/libmacho.dylib
+0x00007ff80d8ba000 	/usr/lib/system/libquarantine.dylib
+0x00007ff80e408000 	/usr/lib/system/libremovefile.dylib
+0x00007ff807201000 	/usr/lib/system/libsystem_asl.dylib
+0x00007ff802304000 	/usr/lib/system/libsystem_blocks.dylib
+0x00007ff802472000 	/usr/lib/system/libsystem_c.dylib
+0x00007ff80e400000 	/usr/lib/system/libsystem_collections.dylib
+0x00007ff80cb61000 	/usr/lib/system/libsystem_configuration.dylib
+0x00007ff80bc0a000 	/usr/lib/system/libsystem_containermanager.dylib
+0x00007ff80e066000 	/usr/lib/system/libsystem_coreservices.dylib
+0x00007ff805256000 	/usr/lib/system/libsystem_darwin.dylib
+0x00007ff80e40b000 	/usr/lib/system/libsystem_dnssd.dylib
+0x00007ff80246f000 	/usr/lib/system/libsystem_featureflags.dylib
+0x00007ff8025ff000 	/usr/lib/system/libsystem_info.dylib
+0x00007ff80e345000 	/usr/lib/system/libsystem_m.dylib
+0x00007ff8023fa000 	/usr/lib/system/libsystem_malloc.dylib
+0x00007ff807184000 	/usr/lib/system/libsystem_networkextension.dylib
+0x00007ff805697000 	/usr/lib/system/libsystem_notify.dylib
+0x00007ff80cb65000 	/usr/lib/system/libsystem_sandbox.dylib
+0x00007ff80e405000 	/usr/lib/system/libsystem_secinit.dylib
+0x00007ff80258b000 	/usr/lib/system/libsystem_kernel.dylib
+0x00007ff8025f5000 	/usr/lib/system/libsystem_platform.dylib
+0x00007ff8025c5000 	/usr/lib/system/libsystem_pthread.dylib
+0x00007ff808b54000 	/usr/lib/system/libsystem_symptoms.dylib
+0x00007ff802349000 	/usr/lib/system/libsystem_trace.dylib
+0x00007ff80e3d7000 	/usr/lib/system/libunwind.dylib
+0x00007ff802308000 	/usr/lib/system/libxpc.dylib
+0x00007ff802576000 	/usr/lib/libc++abi.dylib
+0x00007ff80e3e2000 	/usr/lib/liboah.dylib
+0x00007ff80fb2e000 	/usr/lib/liblzma.5.dylib
+0x00007ff80e41c000 	/usr/lib/libfakelink.dylib
+0x00007ff806de3000 	/System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+0x00007ff80e559000 	/usr/lib/libarchive.2.dylib
+0x00007ff813a5a000 	/System/Library/Frameworks/Combine.framework/Versions/A/Combine
+0x00007ff811baf000 	/usr/lib/swift/libswiftCore.dylib
+0x00007ff906f84000 	/usr/lib/swift/libswiftCoreFoundation.dylib
+0x00007ff90505a000 	/usr/lib/swift/libswiftDarwin.dylib
+0x00007ff81740a000 	/usr/lib/swift/libswiftDispatch.dylib
+0x00007ff906fa0000 	/usr/lib/swift/libswiftIOKit.dylib
+0x00007ff819962000 	/usr/lib/swift/libswiftObjectiveC.dylib
+0x00007ff906f95000 	/usr/lib/swift/libswiftXPC.dylib
+0x00007ffc0797c000 	/usr/lib/swift/libswift_Concurrency.dylib
+0x00007ffc07ab9000 	/usr/lib/swift/libswift_StringProcessing.dylib
+0x00007ff819966000 	/usr/lib/swift/libswiftos.dylib
+0x00007ff80555d000 	/System/Library/PrivateFrameworks/CoreServicesInternal.framework/Versions/A/CoreServicesInternal
+0x00007ff80d8e1000 	/usr/lib/libbsm.0.dylib
+0x00007ff80e3af000 	/usr/lib/system/libkxld.dylib
+0x00007ff80a57c000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents
+0x00007ff805261000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
+0x00007ff8097ff000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
+0x00007ff80e06c000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices
+0x00007ff80e5e1000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit
+0x00007ff808ad8000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+0x00007ff802ac7000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+0x00007ff80fadf000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
+0x00007ff80a589000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList
+0x00007ff80e66b000 	/usr/lib/libapple_nghttp2.dylib
+0x00007ff806ddf000 	/usr/lib/libnetwork.dylib
+0x00007ff808783000 	/usr/lib/libsqlite3.dylib
+0x00007ff808b5c000 	/System/Library/Frameworks/Network.framework/Versions/A/Network
+0x00007ffc06903000 	/usr/lib/libCoreEntitlements.dylib
+0x00007ffb126b6000 	/System/Library/PrivateFrameworks/MessageSecurity.framework/Versions/A/MessageSecurity
+0x00007ff80876a000 	/System/Library/PrivateFrameworks/ProtocolBuffer.framework/Versions/A/ProtocolBuffer
+0x00007ff80df88000 	/System/Library/PrivateFrameworks/AppleFSCompression.framework/Versions/A/AppleFSCompression
+0x00007ff80d8c9000 	/usr/lib/libcoretls.dylib
+0x00007ff80fb47000 	/usr/lib/libcoretls_cfhelpers.dylib
+0x00007ff80e69c000 	/usr/lib/libpam.2.dylib
+0x00007ff80fbb9000 	/usr/lib/libxar.1.dylib
+0x00007ff81009c000 	/usr/lib/libheimdal-asn1.dylib
+0x00007ff80e421000 	/usr/lib/libpcap.A.dylib
+0x00007ff808b4b000 	/usr/lib/libdns_services.dylib
+0x00007ff80cb6c000 	/System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/AppleSystemInfo
+0x00007ff80d5d3000 	/System/Library/PrivateFrameworks/IOMobileFramebuffer.framework/Versions/A/IOMobileFramebuffer
+0x00007ff80e057000 	/usr/lib/libbz2.1.0.dylib
+0x00007ff80d8bd000 	/usr/lib/libCheckFix.dylib
+0x00007ff807218000 	/System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC
+0x00007ff80cb72000 	/System/Library/PrivateFrameworks/CoreNLP.framework/Versions/A/CoreNLP
+0x00007ff8097be000 	/System/Library/PrivateFrameworks/MetadataUtilities.framework/Versions/A/MetadataUtilities
+0x00007ff80d8f2000 	/usr/lib/libmecab.dylib
+0x00007ff803240000 	/usr/lib/libCRFSuite.dylib
+0x00007ff80d94b000 	/usr/lib/libgermantok.dylib
+0x00007ff80e647000 	/usr/lib/libThaiTokenizer.dylib
+0x00007ff80989d000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+0x00007ff815b93000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+0x00007ff80fbfb000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
+0x00007ff80d3e8000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
+0x00007ff802e84000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+0x00007ff80e780000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
+0x00007ff80d94e000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib
+0x00007ff80e686000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparseBLAS.dylib
+0x00007ff80e77a000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libQuadrature.dylib
+0x00007ff80cc58000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBNNS.dylib
+0x00007ff803149000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparse.dylib
+0x00007ffb118f4000 	/System/Library/PrivateFrameworks/MIL.framework/Versions/A/MIL
+0x00007ff80e456000 	/usr/lib/libiconv.2.dylib
+0x00007ff80e3a9000 	/usr/lib/libcharset.1.dylib
+0x00007ff80a560000 	/System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory
+0x00007ff80a554000 	/System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory
+0x00007ff80fb49000 	/System/Library/PrivateFrameworks/APFS.framework/Versions/A/APFS
+0x00007ff80d7ff000 	/System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation
+0x00007ff80fbc7000 	/usr/lib/libutil.dylib
+0x00007ffb10868000 	/System/Library/PrivateFrameworks/InstalledContentLibrary.framework/Versions/A/InstalledContentLibrary
+0x00007ff80559d000 	/System/Library/PrivateFrameworks/CoreServicesStore.framework/Versions/A/CoreServicesStore
+0x00007ffb0784b000 	/System/Library/PrivateFrameworks/AppleMobileFileIntegrity.framework/Versions/A/AppleMobileFileIntegrity
+0x00007ff906f66000 	/usr/lib/libmis.dylib
+0x00007ff9157dc000 	/System/Library/PrivateFrameworks/MobileSystemServices.framework/Versions/A/MobileSystemServices
+0x00007ffa113e0000 	/System/Library/PrivateFrameworks/ConfigProfileHelper.framework/Versions/A/ConfigProfileHelper
+0x00007ff80e649000 	/System/Library/PrivateFrameworks/AppleSauce.framework/Versions/A/AppleSauce
+0x00007ff803e5a000 	/System/Library/PrivateFrameworks/LanguageModeling.framework/Versions/A/LanguageModeling
+0x00007ff80fbcb000 	/usr/lib/libxslt.1.dylib
+0x00007ff80e548000 	/usr/lib/libcmph.dylib
+0x00007ff80d5c0000 	/System/Library/PrivateFrameworks/CoreEmoji.framework/Versions/A/CoreEmoji
+0x00007ff80cc53000 	/System/Library/PrivateFrameworks/LinguisticData.framework/Versions/A/LinguisticData
+0x00007ff803100000 	/System/Library/PrivateFrameworks/Lexicon.framework/Versions/A/Lexicon
+0x00007ff80d88d000 	/System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Versions/A/BackgroundTaskManagement
+0x00007ffc06a45000 	/usr/lib/libTLE.dylib
+0x00007ffc07a02000 	/usr/lib/swift/libswift_RegexParser.dylib
+0x00007ff810935000 	/System/Library/PrivateFrameworks/AppleJPEG.framework/Versions/A/AppleJPEG
+0x00007ff810081000 	/usr/lib/libexpat.1.dylib
+0x00007ff81100b000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib
+0x00007ff811038000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib
+0x00007ff81112a000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib
+0x00007ff810980000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib
+0x00007ff8110ca000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib
+0x00007ff8110c1000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib
+0x00007ff80bf78000 	/System/Library/PrivateFrameworks/FontServices.framework/libFontParser.dylib
+0x00007ff808a7d000 	/System/Library/PrivateFrameworks/RunningBoardServices.framework/Versions/A/RunningBoardServices
+0x00007ff81befb000 	/System/Library/PrivateFrameworks/IOSurfaceAccelerator.framework/Versions/A/IOSurfaceAccelerator
+0x00007ff810a6d000 	/System/Library/PrivateFrameworks/WatchdogClient.framework/Versions/A/WatchdogClient
+0x00007ff803fc0000 	/System/Library/Frameworks/CoreDisplay.framework/Versions/A/CoreDisplay
+0x00007ff80be67000 	/System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia
+0x00007ff80bc4f000 	/System/Library/PrivateFrameworks/IOAccelerator.framework/Versions/A/IOAccelerator
+0x00007ff80a6da000 	/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+0x00007ff80e69a000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/MetalPerformanceShaders
+0x00007ff810aac000 	/System/Library/Frameworks/VideoToolbox.framework/Versions/A/VideoToolbox
+0x00007ff8089bb000 	/System/Library/PrivateFrameworks/BaseBoard.framework/Versions/A/BaseBoard
+0x00007ff8110ba000 	/System/Library/PrivateFrameworks/GPUWrangler.framework/Versions/A/GPUWrangler
+0x00007ff81109e000 	/System/Library/PrivateFrameworks/IOPresentment.framework/Versions/A/IOPresentment
+0x00007ff8110c4000 	/System/Library/PrivateFrameworks/DSExternalDisplay.framework/Versions/A/DSExternalDisplay
+0x00007ffb0cdce000 	/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/31001/Libraries/libllvm-flatbuffers.dylib
+0x00007ffa1b682000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreFSCache.dylib
+0x00007ffb0cdca000 	/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/31001/Libraries/libGPUCompilerUtils.dylib
+0x00007ff811130000 	/System/Library/PrivateFrameworks/CMCaptureCore.framework/Versions/A/CMCaptureCore
+0x00007ffa21161000 	/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation
+0x00007ff817ba1000 	/System/Library/PrivateFrameworks/CoreTime.framework/Versions/A/CoreTime
+0x00007ff81063a000 	/System/Library/PrivateFrameworks/AppServerSupport.framework/Versions/A/AppServerSupport
+0x00007ff8129c5000 	/System/Library/PrivateFrameworks/perfdata.framework/Versions/A/perfdata
+0x00007ff8040ec000 	/System/Library/PrivateFrameworks/AudioToolboxCore.framework/Versions/A/AudioToolboxCore
+0x00007ff80be42000 	/System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk
+0x00007ff8122a2000 	/usr/lib/libAudioStatistics.dylib
+0x00007ff90640c000 	/System/Library/PrivateFrameworks/SystemPolicy.framework/Versions/A/SystemPolicy
+0x00007ff81253b000 	/usr/lib/libSMC.dylib
+0x00007ff81b6ef000 	/System/Library/Frameworks/CoreMIDI.framework/Versions/A/CoreMIDI
+0x00007ff810fd9000 	/usr/lib/libAudioToolboxUtility.dylib
+0x00007ff821082000 	/System/Library/PrivateFrameworks/OSAServicesClient.framework/Versions/A/OSAServicesClient
+0x00007ff8129d2000 	/usr/lib/libperfcheck.dylib
+0x00007ff80ff61000 	/System/Library/PrivateFrameworks/PlugInKit.framework/Versions/A/PlugInKit
+0x00007ff80d7f2000 	/System/Library/PrivateFrameworks/AssertionServices.framework/Versions/A/AssertionServices
+0x00007ffa1b6df000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+0x00007ffa1b6a1000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib
+0x00007ffa1b8a0000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+0x00007ffa1b6aa000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib
+0x00007ffa1b69e000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib
+0x00007ffc06a24000 	/usr/lib/libRosetta.dylib
+0x00007ffa1b689000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib
+0x00007ff80cae1000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSCore.framework/Versions/A/MPSCore
+0x00007ff80def2000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSImage.framework/Versions/A/MPSImage
+0x00007ff80d964000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNeuralNetwork.framework/Versions/A/MPSNeuralNetwork
+0x00007ff80ddd5000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSMatrix.framework/Versions/A/MPSMatrix
+0x00007ff80db91000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSRayIntersector.framework/Versions/A/MPSRayIntersector
+0x00007ff80de11000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNDArray.framework/Versions/A/MPSNDArray
+0x00007ffb02f67000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSFunctions.framework/Versions/A/MPSFunctions
+0x00007ff802d44000 	/System/Library/PrivateFrameworks/MetalTools.framework/Versions/A/MetalTools
+0x00007ff80cb6b000 	/System/Library/PrivateFrameworks/AggregateDictionary.framework/Versions/A/AggregateDictionary
+0x00007ff80fe17000 	/usr/lib/libIOReport.dylib
+0x00007ffb151bb000 	/System/Library/PrivateFrameworks/PhotosensitivityProcessing.framework/Versions/A/PhotosensitivityProcessing
+0x00007ffa1cc91000 	/System/Library/Frameworks/OpenCL.framework/Versions/A/OpenCL
+0x00007ff8101c9000 	/System/Library/PrivateFrameworks/GraphVisualizer.framework/Versions/A/GraphVisualizer
+0x00007ffb0cce3000 	/System/Library/PrivateFrameworks/FontServices.framework/Versions/A/FontServices
+0x00007ff8105f5000 	/System/Library/PrivateFrameworks/OTSVG.framework/Versions/A/OTSVG
+0x00007ff80a2a3000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib
+0x00007ff810644000 	/System/Library/PrivateFrameworks/FontServices.framework/libhvf.dylib
+0x00007ffb0cce4000 	/System/Library/PrivateFrameworks/FontServices.framework/libXTFontStaticRegistryData.dylib
+0x00007ffb1e80c000 	/System/Library/PrivateFrameworks/VideoToolboxParavirtualizationSupport.framework/Versions/A/VideoToolboxParavirtualizationSupport
+0x00007ff810031000 	/System/Library/PrivateFrameworks/AppleVA.framework/Versions/A/AppleVA
+0x00007ff8122e2000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
+0x00007ff807e2b000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+0x00007ff81113c000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
+0x00007ff812691000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
+0x00007ff812689000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSyncLegacy.framework/Versions/A/ColorSyncLegacy
+0x00007ff8122b6000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+0x00007ff8110fa000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATSUI.framework/Versions/A/ATSUI
+0x00007ff81261b000 	/usr/lib/libcups.2.dylib
+0x00007ff8129e1000 	/System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos
+0x00007ff8129f0000 	/System/Library/Frameworks/GSS.framework/Versions/A/GSS
+0x00007ff812350000 	/usr/lib/libresolv.9.dylib
+0x00007ff810654000 	/System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal
+0x00007ff8198e4000 	/System/Library/Frameworks/Kerberos.framework/Versions/A/Libraries/libHeimdalProxy.dylib
+0x00007ff812a3b000 	/System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth
+0x00007ffa20411000 	/System/Library/Frameworks/AVFAudio.framework/Versions/A/AVFAudio
+0x00007ff8210cb000 	/System/Library/PrivateFrameworks/AXCoreUtilities.framework/Versions/A/AXCoreUtilities
+0x00007ff812234000 	/System/Library/PrivateFrameworks/AudioSession.framework/Versions/A/AudioSession
+0x00007ff81382d000 	/System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
+0x00007ff810137000 	/System/Library/PrivateFrameworks/MediaExperience.framework/Versions/A/MediaExperience
+0x00007ff8120de000 	/System/Library/PrivateFrameworks/AudioSession.framework/libSessionUtility.dylib
+0x00007ff81269d000 	/System/Library/PrivateFrameworks/AudioResourceArbitration.framework/Versions/A/AudioResourceArbitration
+0x00007ff8167bb000 	/System/Library/PrivateFrameworks/PowerLog.framework/Versions/A/PowerLog
+0x00007ff8166fb000 	/System/Library/Frameworks/CoreBluetooth.framework/Versions/A/CoreBluetooth
+0x00007ff8198e5000 	/System/Library/Frameworks/AudioUnit.framework/Versions/A/AudioUnit
+0x00007ff80d65c000 	/System/Library/PrivateFrameworks/CoreUtils.framework/Versions/A/CoreUtils
+0x00007ffb0b7b1000 	/System/Library/PrivateFrameworks/CoreUtilsExtras.framework/Versions/A/CoreUtilsExtras
+0x00007ffb106f7000 	/System/Library/PrivateFrameworks/IO80211.framework/Versions/A/IO80211
+0x00007ff8100a5000 	/System/Library/PrivateFrameworks/IconFoundation.framework/Versions/A/IconFoundation
+0x00007ff8157b3000 	/System/Library/PrivateFrameworks/SpeechRecognitionCore.framework/Versions/A/SpeechRecognitionCore
+0x000000010a972000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/server/libjvm.dylib
+0x00000001094db000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libjimage.dylib
+0x000000010953b000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libjdwp.dylib
+0x000000010958b000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libjava.dylib
+0x0000000109501000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libinstrument.dylib
+0x000000010a2c6000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libzip.dylib
+0x000000010a2a9000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libdt_socket.dylib
+0x000000010a310000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libnio.dylib
+0x000000010a353000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libnet.dylib
+0x000000010a334000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libverify.dylib
+0x000000010a2f2000 	/Applications/Android Studio.app/Contents/jbr/Contents/Home/lib/libextnet.dylib
+
+
+VM Arguments:
+jvm_args: -Djava.awt.headless=true -Dorg.gradle.internal.worker.tmpdir=/Users/danieljames/AndroidStudioProjects/PayPayXchange/app/build/tmp/testDebugUnitTest/work -Dorg.gradle.native=false -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=127.0.0.1:59620 -javaagent:/Users/danieljames/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.7.3/2b09627576f0989a436a00a4a54b55fa5026fb86/kotlinx-coroutines-core-jvm-1.7.3.jar -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea 
+java_command: worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 4'
+java_class_path (initial): /Users/danieljames/.gradle/caches/8.0/workerMain/gradle-worker.jar:/Users/danieljames/AndroidStudioProjects/PayPayXchange/app/build/intermediates/classes/debugUnitTest/transformDebugUnitTestClassesWithAsm/dirs:/Users/danieljames/AndroidStudioProjects/PayPayXchange/app/build/intermediates/java_res/debugUnitTest/out:/Users/danieljames/AndroidStudioProjects/PayPayXchange/app/build/intermediates/runtime_app_classes_jar/debug/classes.jar:/Users/danieljames/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-parcelize-runtime/1.9.10/413be2a8afc215889d5a1698466bc034edfcc7b6/kotlin-parcelize-runtime-1.9.10.jar:/Users/danieljames/.gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12/junit-4.13.2.jar:/Users/danieljames/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-test-jvm/1.7.3/89e34400f452dab68fbb3caa66d854c89aaafa07/kotlinx-coroutines-test-jvm-1.7.3.jar:/Users/danieljames/.gradle/caches/transforms-3/527f5ee0c8ea9760ad1549ef8651138c/transformed/material-1.9.0-runtime.jar:/Users/danieljames/.gradle/caches/transforms-3/09b018785b8d4f2663659370e4ba21a5/transformed/appcompat-resources-1.6.1-runtime.jar:/Users/danieljames/.gradle/caches/transforms-3/1011d49db554ff47b7c795f6459d3236/transformed/constraintlayout-2.0.1-runtime.jar:/Users/danieljames/.gradle/caches/transforms-3/ea0182515d92b53d58590cc7b4e2412f/transformed/appcompat-1.6.1-runtime.jar:/Users/danieljames/.gradle/caches/transforms-3/834d6441f5b75127a325867a4e77e760/transformed/material3-1.0.0-runtime.jar:/Users/danieljames/.gradle/caches/transforms-3/5f797f2330193691f90bf7ee1f9df77b/transformed/hilt-work-1.0.0-runtime.jar:/Users/danieljames/.gradle/caches/transforms-3/7e255fbf9e00bff6438576ab23d4ed98/transformed/hilt-android-2.46-runtime.jar:/Users/danieljames/.gradle/caches/transforms-3/139589f87441ba2650d7b929b484c51c/transformed/accompanist-systemuicontroller-0.33.2-alpha-runtime.jar:/Users/danieljames/.grad
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 536870912                                 {product} {command line}
+   size_t MaxNewSize                               = 321912832                                 {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 536870912                              {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseNUMA                                  = false                                     {product} {ergonomic}
+     bool UseNUMAInterleaving                      = false                                     {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=/usr/local/Cellar/openjdk/20.0.1/libexec/openjdk.jdk/Contents/Home
+PATH=/Users/danieljames/.pyenv/bin:/Users/danieljames/Library/pnpm:/usr/local/opt/openjdk/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/danieljames/Library/Android/sdk/platform-tools:/Users/danieljames/Library/Android/sdk/tools:/Users/danieljames/Library/Android/sdk/tools/bin:/Users/danieljames/Library/Android/sdk/emulator
+SHELL=/bin/zsh
+LC_CTYPE=en_US.UTF-8
+TMPDIR=/var/folders/lc/wtwtb0v96298khmyvsq9zxk40000gn/T/
+
+Signal Handlers:
+   SIGSEGV: crash_handler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+    SIGBUS: crash_handler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+    SIGFPE: crash_handler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGPIPE: javaSignalHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGXFSZ: javaSignalHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+    SIGILL: crash_handler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGUSR2: SR_handler in libjvm.dylib, mask=00100000000000000000000000000000, flags=SA_RESTART|SA_SIGINFO
+    SIGHUP: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+    SIGINT: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGTERM: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGQUIT: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGTRAP: crash_handler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO
+
+JNI global refs:
+JNI global refs: 54, weak refs: 5152
+
+JNI global refs memory usage: 52987, weak refs: 52353
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+uname: Darwin 22.4.0 Darwin Kernel Version 22.4.0: Mon Mar  6 21:00:17 PST 2023; root:xnu-8796.101.5~3/RELEASE_X86_64 x86_64
+OS uptime: 5 days 11:25 hours
+rlimit (soft/hard): STACK 8192k/65532k , CORE 0k/infinity , NPROC 2784/4176 , NOFILE 10240/infinity , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK infinity/infinity , RSS infinity/infinity
+load average: 2.06 2.50 2.88
+
+CPU: total 12 (initial active 12) (6 cores per cpu, 2 threads per core) family 6 model 158 stepping 10 microcode 0xf0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt
+
+Memory: 4k page, physical 16777216k(22824k free), swap 5242880k(1648384k free)
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.6+0-17.0.6b829.9-10027231) for bsd-amd64 JRE (17.0.6+0-17.0.6b829.9-10027231), built on Apr 27 2023 16:07:46 by "androidbuild" with clang Android (7284624, based on r416183b) Clang 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee)
+
+END.
